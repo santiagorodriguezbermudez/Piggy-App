@@ -9,8 +9,7 @@ RSpec.describe User do
   end
 
   describe 'validations' do
-    other_user
-    
+
     it 'is valid with valid attribute' do
       expect(subject).to be_valid
     end
@@ -26,6 +25,7 @@ RSpec.describe User do
     end
 
     it 'The name of the user should be unique' do
+      :other_user
       subject.name = 'Pedro'
       expect(subject).to_not be_valid
     end

@@ -7,16 +7,14 @@ RSpec.describe Saving do
   let(:subject) do
     described_class.new(
       project_id: test_project.id,
-      user_id: test_user.id,
-      amount: 10
+      author_id: test_user.id,
+      amount: 10,
       name: 'Test for saving transaction'
     )
   end
 
   describe 'validations' do
-    test_user
-    test_project
-    
+
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
     end
@@ -38,7 +36,6 @@ RSpec.describe Saving do
   end
 
   describe 'Associations', type: :model do
-    it { should belong_to(:user) }
-    it { should belong_to(:project) }
+    it { should belong_to(:author) }
   end
 end

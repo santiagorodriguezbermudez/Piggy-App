@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'webdrivers'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
@@ -47,7 +48,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
 

@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
-  has_many :savings, dependant: destroy
-  belongs_to :project_creator, class_name: 'User', foreign_key: :user_id
+  has_many :savings
+  belongs_to :user
 
   validates :name, :icon, presence: true
   validates :name, length: { minimum: 5 }
