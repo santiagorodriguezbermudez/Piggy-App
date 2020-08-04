@@ -3,7 +3,7 @@ class CreateSavings < ActiveRecord::Migration[6.0]
     create_table :savings do |t|
       t.string :name
       t.decimal :amount
-      t.users :reference
+      t.belongs_to :author, foreign_key: { to_table: :users }
 
       t.timestamps
     end
