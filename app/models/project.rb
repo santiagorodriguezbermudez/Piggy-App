@@ -4,6 +4,5 @@ class Project < ApplicationRecord
 
   validates :name, :icon, presence: true
   validates :name, length: { minimum: 5 }
-  validates :name, uniqueness: true
   validates :goal, numericality: { greater_than_or_equal_to: 1 }
 end

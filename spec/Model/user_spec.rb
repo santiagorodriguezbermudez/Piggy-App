@@ -1,13 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe User do
+  let(:other_user) { User.create(name:'Pedro') }
   let(:subject) do
     described_class.new(
-      name: 'Santiago',
+      name: 'Santiago'
     )
   end
 
   describe 'validations' do
+    other_user
+    
     it 'is valid with valid attribute' do
       expect(subject).to be_valid
     end
@@ -19,6 +22,11 @@ RSpec.describe User do
 
     it 'The name of the user should be longer than 5 characters' do
       subject.name = 'test'
+      expect(subject).to_not be_valid
+    end
+
+    it 'The name of the user should be unique' do
+      subject.name = 'Pedro'
       expect(subject).to_not be_valid
     end
 
