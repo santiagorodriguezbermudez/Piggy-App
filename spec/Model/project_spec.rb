@@ -5,16 +5,13 @@ RSpec.describe Project do
   let(:subject) do
     described_class.new(
       name: 'Project for testing',
-      goal: 10000,
+      goal: 10_000,
       icon: 'url',
       user_id: test_user.id
     )
   end
 
   describe 'validations' do
-    :test_user
-    :other_project
-
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
     end
@@ -38,7 +35,6 @@ RSpec.describe Project do
       subject.name = 'test'
       expect(subject).to_not be_valid
     end
-
   end
 
   describe 'Associations', type: :model do

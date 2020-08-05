@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Saving do
   let(:test_user) { User.create(name: 'Example User') }
-  let(:test_project) { Project.create(name: 'This is a test project', user_id: test_user.id, goal: 10000) }
-  
+  let(:test_project) { Project.create(name: 'This is a test project', user_id: test_user.id, goal: 10_000) }
+
   let(:subject) do
     described_class.new(
       project_id: test_project.id,
@@ -14,7 +14,6 @@ RSpec.describe Saving do
   end
 
   describe 'validations' do
-
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
     end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  let(:other_user) { User.create(name:'Pedro') }
+  let(:other_user) { User.create(name: 'Pedro') }
   let(:subject) do
     described_class.new(
       name: 'Santiago'
@@ -9,7 +9,6 @@ RSpec.describe User do
   end
 
   describe 'validations' do
-
     it 'is valid with valid attribute' do
       expect(subject).to be_valid
     end
@@ -25,11 +24,10 @@ RSpec.describe User do
     end
 
     it 'The name of the user should be unique' do
-      :other_user
+      other_user
       subject.name = 'Pedro'
       expect(subject).to_not be_valid
     end
-
   end
 
   describe 'Associations', type: :model do
