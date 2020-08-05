@@ -1,2 +1,30 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% unless logged_in?%>
+    <div class="row h-100 text-center px-3">
+        <h1 class = 'col-12 my-5 mx-auto'>Piggy App</h1>
+        <section class = 'col-12'>
+          <%= image_tag 'piggy_img.png',class: 'w-25 m-5'%>
+          <% if flash[:alert] %>
+            <aside class="notice"><%= flash[:alert] %></aside>
+          <% end %>    
+          <%= form_tag do %>
+            <h4>Please Log In</h4>
+
+            <div class="field my-3">
+              <%= label_tag :name, 'Name:' %>
+              <%= text_field_tag :name, params[:name], class: 'border-0 shadow p-3', placeholder: 'Type in Username' %>
+            </div>
+
+            <div class="field my-3">
+              <%= label_tag :password, 'Password:' %>
+              <%= password_field_tag :password, params[:password], class: 'border-0 shadow p-3', placeholder: 'Type in Password' %>
+            </div>
+
+            <div class="actions">
+              <%= submit_tag "Login", class: 'btn btn-primary w-100 shadow' %>
+            </div>
+          <% end %>
+        </section>
+    </div>
+<% else %>
+    <%= button_to "Logout", destroy_path, method: :post, class: 'btn btn-danger p-2 w-100 shadow'%>
+<% end %>

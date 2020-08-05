@@ -16,24 +16,26 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light custom-nav"> 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <span>Savings</span>
-      <div class="collapse navbar-collapse" id='navbarToogler'>
-         <img src="" alt="User_picture" class="user-profile">     
-         <p> Nombre de usuario</p>
-         <ul class='navbar-nav mr-auto'>
-          <li>All my Savings</li>
-          <li>All my savings without project</li>
-          <li>All My Projects</li>
-          <li>All Projects</li>
-         </ul>
-      </div>
-    </nav>
+    <% if logged_in? %>
+      <nav class="navbar navbar-light custom-nav"> 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <span>Savings</span>
+        <div class="collapse navbar-collapse" id='navbarToogler'>
+          <img src="" alt="User_picture" class="user-profile">     
+          <p> Nombre de usuario</p>
+          <ul class='navbar-nav mr-auto'>
+            <li>All my Savings</li>
+            <li>All my savings without project</li>
+            <li>All My Projects</li>
+            <li>All Projects</li>
+          </ul>
+        </div>
+      </nav>
+    <% end %>
     
-    <div class="h-100">
+    <div class="h-100 mx-auto main">
       <%= yield %>
     </div>
   </body>
