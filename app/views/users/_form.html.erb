@@ -1,0 +1,55 @@
+<%= javascript_include_tag 'user' %>
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3>Enter User Details</h3>
+
+  <div id="image" class="d-none">
+    <br>
+    <img id="img-upload" alt="preview" class="w-50 d-block mx-auto rounded-circle">
+    <br>
+  </div>
+
+  <div class="form-group">
+    <div class="custom-file ">
+      <%= form.file_field :image, class: 'custom-file-input',onChange: 'preview_picture()' %>
+      <%= form.label :image, "Upload picture", class: 'custom-file-label' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :name, 'Name:', class: 'my-3' %>
+    <%= form.text_field :name, class: 'form-control border-0 shadow p-5 w-100', placeholder: 'Type your Unique username' %>
+  </div>
+
+  <div class="form-group my-3">
+    <%= form.label :password, 'Password:', class: 'my-3'%>
+    <%= form.password_field :password, size: 40, class: 'form-control border-0 shadow p-5 w-100', placeholder: 'Type your password' %>
+  </div>
+
+  <div class="form-group my-3">
+    <%= form.label :password_confirmation, 'Confirm Password:', class: 'my-3' %>
+    <%= form.password_field :password_confirmation,
+                            id: :user_password_confirmation,
+                            size: 40,
+                            class: 'form-control border-0 shadow p-5 w-100 input-form',
+                            placeholder: 'Type your password again' %>
+  </div>
+
+  <div>
+    <%= form.submit class:"my-3 btn-large btn-primary w-100 p-3"%>
+  </div>
+<% end %>
+
+
+

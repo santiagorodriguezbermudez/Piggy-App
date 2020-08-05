@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+  font-size: 2rem !important;
+}
+
 .custom-nav {
   background-color: #3778c2;
 }
@@ -22,4 +26,12 @@
   max-width: 1440px;
 }
 
-@import "bootstrap";
+.input-form {
+  font-size: 30px;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 2rem;
+}
+
+@import "bootstrap/scss/bootstrap";

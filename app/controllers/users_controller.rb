@@ -1,5 +1,6 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:create, :new]
 
   # GET /users
   # GET /users.json

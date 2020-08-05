@@ -1,0 +1,12 @@
+<% unless logged_in?%>
+    <div class="row text-center px-3">
+        <h1 class = 'my-5 mx-auto'>Piggy App - New User</h1>
+        <div class="col-sm-12 my-auto">
+            <%= image_tag 'piggy_img.png',class: 'w-50 m-5'%>
+            <%= render 'form', user: @user %>
+            <%= link_to 'Back', root_path %>
+        </div>
+    </div>
+<% else %>
+    <%= button_to "Logout", destroy_path, method: :post%>
+<% end %>
