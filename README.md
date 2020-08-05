@@ -53,7 +53,8 @@ Postgres: >=9.5
 
 
 ## Credits
-Layouts design by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
+Layouts design by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)<br>
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 
 ## 🤝 Contributing
 
