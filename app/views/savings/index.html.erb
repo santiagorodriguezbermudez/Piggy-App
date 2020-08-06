@@ -1,5 +1,5 @@
 <section class = 'w-100 p-3'>
-  <h3>Total amount of savings: <span><%= total_savings(@savings) %></span></h3>
+  <h3>Total amount of savings: <span><%= number_to_currency(@total_savings) %></span></h3>
 </section>
 
 <section class='list_savings p-3'>
@@ -14,7 +14,7 @@
           <p class="saving_date"><%= saving[:date] %></p>
         </div>
         <div class="amount">
-          <%= saving[:amount] %>
+          <%= number_to_currency(saving[:amount]) %>
         </div>
       </div>
     <% end %>

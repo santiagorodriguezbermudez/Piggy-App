@@ -1,5 +1,5 @@
 module SavingsHelper
-  def total_savings(array)
-    array.inject{ |sum, saving| sum +=saving[:amount]}
+  def get_project_name
+    Project.all.pluck(:name).flatten
   end
 end
