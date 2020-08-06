@@ -19,9 +19,8 @@
       </div>
     <% end %>
   <% else %>
-    <p>You currently have no savings related to a project</p>
-    <%= link_to "Add a saving to a project", savings_no_project_path, class:'btn btn-success w-75 py-3 my-5 mr-auto'%>
+    <p>You currently have no savings</p>
   <% end %>
 </section>
 
-<%= link_to "Add a saving", new_saving_path, class:'btn btn-success w-100 px-3 py-4 m-4'%>
+<%= link_to "Add a saving", new_saving_path, class:'btn btn-success w-100 px-3 py-5 my-5'%>

@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :users
   root 'sessions#welcome'
 
+  controller :savings do
+    get 'savings_no_project' => :savings_with_no_project
+  end
 end
