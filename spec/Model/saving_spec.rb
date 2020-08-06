@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Saving do
-  let(:test_user) { User.create(name: 'Example User') }
+  let(:test_user) { User.create(name: 'Example User', password: 'secret', password_confirmation: 'secret') }
   let(:test_project) { Project.create(name: 'This is a test project', user_id: test_user.id, goal: 10_000) }
 
   let(:subject) do

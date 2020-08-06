@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Project do
-  let(:test_user) { User.create(name: 'Example User') }
+  let(:test_user) { User.create(name: 'Example User', password: 'secret', password_confirmation: 'secret') }
   let(:subject) do
     described_class.new(
       name: 'Project for testing',

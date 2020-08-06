@@ -1,16 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  let(:other_user) { User.create(name: 'Pedro') }
+  let(:other_user) { User.create(name: 'Pedro', password: 'secret', password_confirmation: 'secret') }
   let(:subject) do
     described_class.new(
-      name: 'Santiago'
+      name: 'Santiago',
+      password: 'secret',
+      password_confirmation: 'secret'
     )
   end
 
   describe 'validations' do
     it 'is valid with valid attribute' do
       expect(subject).to be_valid
+    end
+
+    it 'The password of the user should exist' do
+      subject.password_digest = ''
+      expect(subject).to_not be_valid
+    end
+
+    it 'Password is not the same' do
+      subject.password_confirmation = 'wrong'
+      expect(subject).to_not be_valid
     end
 
     it 'The name of the user should exist' do
