@@ -18,8 +18,17 @@ body {
   font-size: 2rem !important;
 }
 
-.custom-nav {
+.navbar,
+.menu {
   background-color: #3778c2;
+}
+
+.menu {
+  min-height: 100vh;
+}
+
+.custom_nav_item {
+  border-bottom: solid white 1px;
 }
 
 .main {
