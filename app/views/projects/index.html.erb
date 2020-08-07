@@ -16,6 +16,7 @@
           </div>
           <div class="amount">
             <%= number_to_currency(project[1]) %>
+            <%= link_to 'View project', project_path(project[3]) %>
           </div>
         <% end %>
       </div>
@@ -36,6 +37,7 @@
           </div>
           <div class="amount">
             <%= number_to_currency(project[1]) %>
+            <%= link_to 'View project', project_path(project[3]) %>
           </div>
         <% end %>
       </div>

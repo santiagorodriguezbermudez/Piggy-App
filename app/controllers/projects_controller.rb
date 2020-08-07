@@ -1,10 +1,12 @@
 class ProjectsController < ApplicationController
   def index
-    @user_projects = current_user.projects.ordered_by_name.pluck(:name, :goal, :created_at)
-    @other_projects = Project.rest_of_projects(current_user.id).pluck(:name, :goal, :created_at)
+    @user_projects = current_user.projects.ordered_by_name.pluck(:name, :goal, :created_at, :id)
+    @other_projects = Project.rest_of_projects(current_user.id).pluck(:name, :goal, :created_at, :id)
   end
 
   def show
+    @project = Project.find(params[:id])
+    @savings = @project.savings.ordered_by_date_savings.includes(:author).pluck(:name, :amount, :created_at, 'users.name')
   end
 
   def new
