@@ -1,18 +1,18 @@
-<%= javascript_include_tag 'user' %>
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
+<%= javascript_include_tag 'show_image' %>
+<%= form_with(model: project, local: true) do |form| %>
+  <% if project.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(project.errors.count, "error") %> The following errors were detected before creating a project:</h2>
 
       <ul>
-        <% user.errors.full_messages.each do |message| %>
+        <% project.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <h3>Enter User Details</h3>
+  <h3>Enter Project Details</h3>
 
   <div id="image" class="d-none">
     <br>
@@ -29,21 +29,12 @@
 
   <div class="form-group">
     <%= form.label :name, 'Name:', class: 'my-3' %>
-    <%= form.text_field :name, class: 'border-0 shadow p-5 w-100', placeholder: 'Type your Unique username' %>
+    <%= form.text_field :name, class: 'border-0 shadow p-5 w-100', placeholder: 'Type the name of the project' %>
   </div>
 
-  <div class="form-group my-3">
-    <%= form.label :password, 'Password:', class: 'my-3'%>
-    <%= form.password_field :password, size: 40, class: 'form-control border-0 shadow p-5 w-100', placeholder: 'Type your password' %>
-  </div>
-
-  <div class="form-group my-3">
-    <%= form.label :password_confirmation, 'Confirm Password:', class: 'my-3' %>
-    <%= form.password_field :password_confirmation,
-                            id: :user_password_confirmation,
-                            size: 40,
-                            class: 'form-control border-0 shadow p-5 w-100 input-form',
-                            placeholder: 'Type your password again' %>
+  <div class="form-group">
+    <%= form.label :goal, 'Goal of the Project:', class: 'my-3' %>
+    <%= form.number_field :goal, class: 'border-0 shadow p-5 w-100' %>
   </div>
 
   <div>
