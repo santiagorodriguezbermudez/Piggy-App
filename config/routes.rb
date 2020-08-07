@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  
-  get 'projects/index'
-  get 'projects/show'
-  get 'projects/new'
-  get 'projects/create'
-  get 'projects/destroy'
+  resources :projects, only: [:create, :new, :index, :show]
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create

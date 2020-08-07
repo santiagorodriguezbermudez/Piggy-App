@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @user_projects = current_user.projects.ordered_by_name.pluck(:name, :goal, :created_at)
+    @other_projects = Project.rest_of_projects(current_user.id).pluck(:name, :goal, :created_at)
   end
 
   def show
@@ -12,6 +13,4 @@ class ProjectsController < ApplicationController
   def create
   end
 
-  def destroy
-  end
 end
