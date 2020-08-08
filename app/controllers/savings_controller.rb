@@ -18,7 +18,7 @@ class SavingsController < ApplicationController
   def create
     @saving = Saving.new(saving_params)
     @saving.author = current_user
-    @saving.project_id = Project.find_by(name:params[:saving][:project_id]).id
+    @saving.project_id = Project.find_by(name:params[:saving][:project_id]).id unless params[:saving][:project_id].nil?
     
     respond_to do |format|
       if @saving.save
@@ -38,7 +38,9 @@ class SavingsController < ApplicationController
   def destroy; end
 
   def savings_with_no_project
-    @savings = current_user.savings.savings_with_no_project.pluck(:name, :amount, :created_at).map {|s| {name: s[0], amount: s[1], date: s[2]}}
+    @savings = current_user.savings.savings_with_no_project.includes(:project)
+    @savings = @savings.pluck(:name, :amount, :created_at, 'projects.image_url', :project_id)
+    @savings.map! {|s| {name: s[0], amount: s[1], date: s[2].strftime("%b-%d-%Y"), img: s[3], project: s[4]}}
     @total_savings = current_user.savings.savings_with_no_project.sum(:amount)
   end
 
