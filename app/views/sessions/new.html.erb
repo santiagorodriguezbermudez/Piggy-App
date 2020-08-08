@@ -2,10 +2,10 @@
 
 <div class="row <%= controller.action_name %>">
     <section class = 'col-12'>
-      <%= form_tag do %>
+      <%= form_tag login_path, method:'post', id:'form' do %>
         <%= text_field_tag :name, params[:name], class: 'border-light w-100 rounded mb-0 py-4 pl-3', placeholder: 'Username' %>
         <%= password_field_tag :password, params[:password], class: 'border-light rounded my-0 py-4 pl-3 w-100', placeholder: 'Type in Password' %>   
-        <% @page_button = (submit_tag 'Log in', class: 'submit').html_safe %>
+        <% @page_button = (submit_tag 'Log in', class: 'submit', form:'form').html_safe %>
       <% end %>
  
     </section>
