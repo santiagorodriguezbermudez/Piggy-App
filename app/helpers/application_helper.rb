@@ -26,4 +26,5 @@ module ApplicationHelper
       root_path
     end
   end
+
 end

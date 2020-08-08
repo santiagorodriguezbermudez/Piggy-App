@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
+    @project.image_url = project.image.url
 
     respond_to do |format|
       if @project.save
