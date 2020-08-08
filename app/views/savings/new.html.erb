@@ -1,1 +1,7 @@
-<%= render 'form', saving: @saving %>
+<% @page_name = 'ADD A SAVING' %>
+
+<div class="<%= controller.action_name %>">
+    <section class = 'col-12 p-0'>
+        <%= render 'form', saving: @saving %>
+    </section>
+</div>

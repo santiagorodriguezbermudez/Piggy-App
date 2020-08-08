@@ -1,40 +1,29 @@
-<%= form_with(model: saving, local: true) do |form| %>
-  <% if saving.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(saving.errors.count, "error") %> Couldn't register the savings:</h2>
+<%= form_with(model: saving, local: true, id:'Saving') do |form| %>
+  <%= form.text_field :name, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Name your contribution' %>
+  <%= form.number_field :amount, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Amount' %>
+  <% unless no_projects? %>
+    <%= display_projects %>
+  <% else %>
+    <%= link_to 'Add the first Project', root_path, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3' %>  
+  <% end %>
+  <% @page_button = (form.submit 'Save', class:"submit", form: 'Saving').html_safe %>
 
-      <ul>
+  <% if saving.errors.any? %>
+    <div id="error_explanation" class="m-5 border border-danger rounded p-5">
+      <h2><%= pluralize(saving.errors.count, "error") %> prevented the user from being saved, please correct the following:</h2>
+
+      <ul class='pl-0'>
         <% saving.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <p class='mx-0 px-0 text-danger text-bold'><%= message %></p>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <h3>Enter Saving Details</h3>
-
-
-  <div class="field">
-    <%= form.label :project_id, 'Select the project to which you wish to contribute (optional)' %>
-    <% projects_name = get_project_name %>
-    <% unless projects_name %>
-      <%= link_to 'Add the first Project', root_path %>  
-    <% else %>
-      <%= form.select :project_id, projects_name, prompt: 'Select a project' %>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :name, 'Name of your contribution:', class: 'my-3' %>
-    <%= form.text_field :name, class: 'form-control border-0 shadow p-5 w-100' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :amount, 'Amount of your contribution:', class: 'my-3' %>
-    <%= form.number_field :amount, class: 'form-control border-0 shadow p-5 w-100' %>
-  </div>
-
-  <div>
-    <%= form.submit class:"my-3 btn-large btn-primary w-100 p-3"%>
-  </div>
 <% end %>
+
+
+
+
+
+
+

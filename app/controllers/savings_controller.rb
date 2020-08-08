@@ -18,7 +18,7 @@ class SavingsController < ApplicationController
   def create
     @saving = Saving.new(saving_params)
     @saving.author = current_user
-    @saving.project_id = Project.find_by(name:params[:saving][:project_id]).id unless params[:saving][:project_id].nil?
+    
     
     respond_to do |format|
       if @saving.save

@@ -27,11 +27,13 @@
     }
 
     .profile {
-      width: 600px;
-      height: 600px;
+      min-width: 500px;
+      max-width: 500px;
+      min-height: 500px;
+      max-height: 500px;
       object-fit: cover;
       object-position: center;
-      margin: 0 auto 5rem;
+      margin: 5rem auto 0;
       border-radius: 50%;
     }
   }
