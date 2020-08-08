@@ -1,10 +1,8 @@
-<% unless logged_in?%>
-    <div class="row h-100 text-center px-3">
-        <h1 class = 'my-5 mx-auto'>Piggy App</h1>
-        <div class="col-sm-12 my-auto">
-            <%= image_tag 'piggy_img.png',class: 'w-25 m-5'%>
-            <%= link_to 'Log in', login_url, class: 'btn btn-primary p-3 w-100 shadow' %>
-            <%= link_to 'Sign Up', new_user_path, class: 'btn btn-success p-3 w-100 shadow' %>
-        </div>
+<div class="row text-center my-auto px-3">
+    <div class="col-12">
+        <%= image_tag 'piggy_img.png',class: 'w-50'%>
+        <h1 class = 'col-12 mx-auto'>Piggy App</h1>
+        <%= link_to 'Log in', login_url, class: 'btn btn-lg btn-primary btn-block active' %>
+        <%= link_to 'Sign Up', new_user_path, class: 'btn btn-lg btn-light bg-white btn-block ' %>
     </div>
-<% end %>
+</div>

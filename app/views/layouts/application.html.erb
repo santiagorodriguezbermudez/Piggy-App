@@ -9,20 +9,20 @@
     <%= favicon_link_tag 'piggy_icon.svg' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/4c68ce4f85.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   </head>
 
-  <body>  
+  <body id='main'>  
 
     <% unless no_navbar %>
-      <nav class = 'navbar'>
+      <nav class = 'navbar py-3'>
         <%= left_icon %>
-        <span>Title Section</span>
+        <span class = 'mx-auto'> prueba </span>
       </nav>
     <% end %>
 
-    <main id='container-fluid <%= controller.controller_name %>' >
+    <main class='container-fluid <%= controller.controller_name %>' >
         <%= yield %>
-      </div>
     </main>
   </body>
 </html>
