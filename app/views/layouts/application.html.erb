@@ -11,42 +11,18 @@
     <script src="https://kit.fontawesome.com/4c68ce4f85.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
+  <body>  
 
-    <% if logged_in? %>
-
-      <nav class="navbar">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars fa-3x text-white"></i>
-        </button>
-        <ul class="navbar-nav px-3">
-          <%= button_to "Logout", logout_path, method: :delete, class:'btn btn-success'%>
-        </ul>
-      </nav>    
-
-      <div id="navbarToggler" class="container_fluid">
-        <div class="row">
-          <nav class="col-8 sidebar menu shadow">
-            <div class="sidebar-header text-center my-5 text-white">
-              <%= image_tag current_user.image.url, class:"w-50 d-block mx-auto rounded-circle"%>
-              <hr>
-              <h2><%= current_user.name %></h2>
-            </div>       
-            <ul class="nav flex-column text-white">
-              <li class ='custom_nav_item pl-4 my-3'><i class="fas fa-piggy-bank p-4"></i><%= link_to 'All my savings', savings_path, class:'text-white' %></li>
-              <li class='custom_nav_item pl-4 my-3'><i class="fas fa-tasks p-4"></i><%= link_to 'Savings with no project', savings_no_project_path, class: 'text-white' %></li>
-              <li class='custom_nav_item pl-4 my-3'><i class="fas fa-user-friends p-4"></i><%= link_to 'All my projects', projects_path, class: 'text-white' %></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-
+    <% unless no_navbar %>
+      <nav class = 'navbar'>
+        <%= left_icon %>
+        <span>Title Section</span>
+      </nav>
     <% end %>
-    
-    <main class="mx-auto <%= controller.controller_name %>" >
-      <%= yield %>
-    </main>
 
-    <script src="https://use.fontawesome.com/749d5aad4c.js"></script>
+    <main id='container-fluid <%= controller.controller_name %>' >
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

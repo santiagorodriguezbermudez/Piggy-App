@@ -14,33 +14,4 @@
  *= require_self
  */
 
-body {
-  font-size: 2rem !important;
-}
-
-.navbar,
-.menu {
-  background-color: #3778c2;
-}
-
-.menu {
-  min-height: 100vh;
-}
-
-.custom_nav_item {
-  border-bottom: solid white 1px;
-}
-
-.main {
-  max-width: 1440px;
-}
-
-.input-form {
-  font-size: 30px;
-}
-
-input::-webkit-input-placeholder {
-  font-size: 2rem;
-}
-
 @import "bootstrap/scss/bootstrap";

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
+    get 'welcome' => :welcome
   end
   resources :savings
   resources :users
-  root 'sessions#welcome'
+  root 'users#show'
 
   controller :savings do
     get 'savings_no_project' => :savings_with_no_project
