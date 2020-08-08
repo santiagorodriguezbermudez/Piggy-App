@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    @user_projects = current_user.projects.ordered_by_name.pluck(:name, :goal, :created_at, :id)
-    @other_projects = Project.rest_of_projects(current_user.id).pluck(:name, :goal, :created_at, :id)
+    @user_projects = pluck_to_hash(current_user.projects.ordered_by_name.pluck(:name, :goal, :created_at, :id, :image_url))
+    @other_projects = pluck_to_hash(Project.rest_of_projects(current_user.id).pluck(:name, :goal, :created_at, :id, :image_url))
   end
 
   def show
@@ -16,10 +16,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    @project.image_url = @project.image.url
 
     respond_to do |format|
       if @project.save
+        @project.update(image_url: @project.image.url)
         format.html { redirect_to projects_path, notice: "The Project #{@project.name} was successfully created." }
       else
         format.html { render :new }
@@ -31,6 +31,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :image, :goal)
+  end
+
+  def pluck_to_hash(pluck)
+    pluck.map! {|s| {name: s[0], goal: s[1], date: s[2].strftime("%b-%d-%Y"), id: s[3], img: s[4]}}
   end
 
 end
