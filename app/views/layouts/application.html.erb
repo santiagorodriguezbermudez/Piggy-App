@@ -23,12 +23,14 @@
     <% end %>
 
     <main class='container-fluid <%= controller.controller_name %>' >
-        <% if flash[:alert] %>
-          <aside class="text-danger border border-danger"><%= flash[:alert] %></aside>
-        <% end %>
-        <% if flash[:notice] %>
-          <aside class="text-success border border-success"><%= flash[:notice] %></aside>
-        <% end %>      
+        <div class="p-5">
+          <% if flash[:alert] %>
+            <aside class="text-danger border border-danger"><%= flash[:alert] %></aside>
+          <% end %>
+          <% if flash[:notice] %>
+            <aside class="text-success border border-success"><%= flash[:notice] %></aside>
+          <% end %>      
+        </div>
         <%= yield %>
     </main>
   </body>
