@@ -1,54 +1,34 @@
 <%= javascript_include_tag 'show_image' %>
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_with(model: user, local: true, id: 'User') do |form| %>
+  <div id="image" class="d-none mt-5">
+    <br>
+    <img id="img-upload" alt="preview" class="w-50 d-block mx-auto">
+    <br>
+  </div>
 
-      <ul>
+  <%= form.file_field :image, class: 'custom-file-input mb-3',onChange: 'preview_picture()' %>
+  <%= form.label :image, "Upload picture", class: 'custom-file-label' %>
+  <%= form.text_field :name, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Type your Unique username' %>
+  <%= form.password_field :password, size: 40, class: 'pl-5  border-white w-100 rounded mb-0 py-4 my-3', placeholder: 'Type your password' %>
+  <%= form.password_field :password_confirmation,
+                          id: :user_password_confirmation,
+                          size: 40,
+                          class: 'pl-5 border-white w-100 rounded mb-0 py-4 my-3',
+                          placeholder: 'Type your password again' %>
+
+  <% @page_button = (form.submit 'Next', class:"submit", form: 'User').html_safe %>
+
+  <% if user.errors.any? %>
+    <div id="error_explanation" class="m-5 border border-danger rounded p-5">
+      <h2><%= pluralize(user.errors.count, "error") %> prevented the user from being saved, please correct the following:</h2>
+
+      <ul class='pl-0'>
         <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <p class='mx-0 px-0 text-danger text-bold'><%= message %></p>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <h3>Enter User Details</h3>
-
-  <div id="image" class="d-none">
-    <br>
-    <img id="img-upload" alt="preview" class="w-50 d-block mx-auto rounded-circle">
-    <br>
-  </div>
-
-  <div class="form-group">
-    <div class="custom-file ">
-      <%= form.file_field :image, class: 'custom-file-input',onChange: 'preview_picture()' %>
-      <%= form.label :image, "Upload picture", class: 'custom-file-label' %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :name, 'Name:', class: 'my-3' %>
-    <%= form.text_field :name, class: 'border-0 shadow p-5 w-100', placeholder: 'Type your Unique username' %>
-  </div>
-
-  <div class="form-group my-3">
-    <%= form.label :password, 'Password:', class: 'my-3'%>
-    <%= form.password_field :password, size: 40, class: 'form-control border-0 shadow p-5 w-100', placeholder: 'Type your password' %>
-  </div>
-
-  <div class="form-group my-3">
-    <%= form.label :password_confirmation, 'Confirm Password:', class: 'my-3' %>
-    <%= form.password_field :password_confirmation,
-                            id: :user_password_confirmation,
-                            size: 40,
-                            class: 'form-control border-0 shadow p-5 w-100 input-form',
-                            placeholder: 'Type your password again' %>
-  </div>
-
-  <div>
-    <%= form.submit class:"my-3 btn-large btn-primary w-100 p-3"%>
-  </div>
 <% end %>
 
 

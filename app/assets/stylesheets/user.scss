@@ -1,3 +1,20 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.users {
+  margin: 0;
+
+  .new {
+    margin: 3rem 0;
+
+    .form-control-lg {
+      font-size: 3rem;
+    }
+
+    input {
+      border-width: 1px;
+      
+    }
+  }
+}
