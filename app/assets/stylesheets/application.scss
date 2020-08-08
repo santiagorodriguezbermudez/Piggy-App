@@ -22,4 +22,22 @@
   color: #434b54;
 }
 
+.navbar {
+  background-color: #3778c2;
+  color: white;
+
+  a {
+    color: white;
+  }
+
+  .submit {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+}
+
+
 @import "bootstrap/scss/bootstrap";

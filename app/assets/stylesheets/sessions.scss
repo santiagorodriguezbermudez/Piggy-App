@@ -3,20 +3,26 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .sessions {
-  height: 100vh;
-  margin: 0;
+  .welcome {
+    height: 100vh;
+    margin: 0;
 
-  h1 {
-    font-size: 4rem;
-    line-height: 2rem;
-    margin-bottom: 15rem;
+    h1 {
+      font-size: 4rem;
+      line-height: 2rem;
+      margin-bottom: 15rem;
+    }
+
+    img {
+      margin: 15rem 0 3rem;
+    }
+
+    .btn {
+      font-size: 3rem;
+    }
   }
 
-  img {
-    margin: 15rem 0 3rem;
-  }
-
-  .btn {
-    font-size: 3rem;
+  .new {
+    margin: 3rem 0;
   }
 }
