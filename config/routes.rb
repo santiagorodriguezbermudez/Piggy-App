@@ -7,11 +7,13 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
     get 'welcome' => :welcome
   end
-  resources :savings
-  resources :users
-  root 'users#show'
 
+  resources :savings, only: [:create, :new, :index]
+  resources :users, only: [:create, :new, :show, :index]
+  
   controller :savings do
     get 'savings_no_project' => :savings_with_no_project
   end
+  
+  root 'users#show'
 end

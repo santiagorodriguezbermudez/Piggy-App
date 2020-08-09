@@ -22,7 +22,7 @@ class SavingsController < ApplicationController
     
     respond_to do |format|
       if @saving.save
-        format.html { redirect_to root_path, notice: "The Saving #{@saving.name} was registered." }
+        format.html { redirect_to root_path, notice: "#{@saving.name} was registered." }
       else
         format.html { render :new }
       end

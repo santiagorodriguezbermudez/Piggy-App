@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         @project.update(image_url: @project.image.url)
-        format.html { redirect_to projects_path, notice: "The Project #{@project.name} was successfully created." }
+        format.html { redirect_to projects_path, notice: "The project #{@project.name} was created." }
       else
         format.html { render :new }
       end
