@@ -9,7 +9,6 @@ class Project < ApplicationRecord
   has_attached_file :image, styles: { medium: '300x300#', thumb: '100x100#' }, default_url: 'user.svg'
   validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/png']
 
-  scope :ordered_by_name, -> { order(name: :asc)}
-  scope :rest_of_projects, -> (user_id) { where.not("user_id=?", user_id).ordered_by_name }
-  
+  scope :ordered_by_name, -> { order(name: :asc) }
+  scope :rest_of_projects, ->(user_id) { where.not('user_id=?', user_id).ordered_by_name }
 end

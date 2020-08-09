@@ -6,8 +6,7 @@ class UsersController < ApplicationController
     @users = User.order(:name)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @user = User.new
