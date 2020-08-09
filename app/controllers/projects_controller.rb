@@ -6,7 +6,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @savings = @project.savings.ordered_by_date_savings.includes(:author).pluck(:name, :amount, :created_at, 'users.name')
+    @savings = @project.savings.ordered_by_date_savings.includes(:author)
+    @savings = pluck_to_hash(@savings.pluck(:name, :amount, :created_at, 'users.name', 'users.image_url'))
+    @total_savings = @project.savings.sum(:amount)
   end
 
   def new
