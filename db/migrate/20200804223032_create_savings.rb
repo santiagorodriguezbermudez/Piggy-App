@@ -4,7 +4,6 @@ class CreateSavings < ActiveRecord::Migration[6.0]
       t.string :name
       t.decimal :amount
       t.belongs_to :author, foreign_key: { to_table: :users }
-      t.belongs_to :project, foreign_key: { to_table: :projects }
 
       t.timestamps
     end
