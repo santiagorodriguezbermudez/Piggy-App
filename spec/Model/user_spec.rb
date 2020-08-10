@@ -40,6 +40,10 @@ RSpec.describe User do
       subject.name = 'Pedro'
       expect(subject).to_not be_valid
     end
+
+    it 'it has a default image when the picture does not uploads' do
+      expect(subject.image.url).to eql('user.svg')
+    end
   end
 
   describe 'Associations', type: :model do

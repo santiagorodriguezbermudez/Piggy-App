@@ -14,10 +14,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.image_url = user.image.url
 
     respond_to do |format|
       if @user.save
+        @user.update(image_url: @user.image.url)
         format.html { redirect_to login_path, notice: "#{@user.name} was created succesfully." }
       else
         format.html { render :new }

@@ -4,9 +4,8 @@ RSpec.describe Project do
   let(:test_user) { User.create(name: 'Example User', password: 'secret', password_confirmation: 'secret') }
   let(:subject) do
     described_class.new(
-      name: 'Project for testing',
+      name: 'Testing Project',
       goal: 10_000,
-      icon: 'url',
       user_id: test_user.id
     )
   end
@@ -21,8 +20,8 @@ RSpec.describe Project do
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a icon' do
-      subject.icon = ''
+    it 'is not valid without a goal' do
+      subject.goal = ''
       expect(subject).to_not be_valid
     end
 
@@ -34,6 +33,10 @@ RSpec.describe Project do
     it 'is not valid with a name smaller than 5 characters' do
       subject.name = 'test'
       expect(subject).to_not be_valid
+    end
+
+    it 'it has a default image when the picture does not uploads' do
+      expect(subject.image.url).to eql('user.svg')
     end
   end
 
