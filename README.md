@@ -8,6 +8,15 @@ A Ruby on Rails mobile web app that helps you organize with your friends / famil
 ## Video Demo
 [Walkthrough demo - Work in Progress]()
 
+# App screenshots
+![screenshot](./app/assets/images/log.png)
+![screenshot](./app/assets/images/user_profile.png)
+![screenshot](./app/assets/images/savings.png)
+![screenshot](./app/assets/images/list_savings.png)
+![screenshot](./app/assets/images/project.png)
+
+
+
 ## Built With
 
 - Ruby v2.7.0
@@ -22,7 +31,9 @@ A Ruby on Rails mobile web app that helps you organize with your friends / famil
 - explore the application
 
 ## Instructions
-- Work in progress
+- Log in and add create your user
+- Create a saving and add it to a specific project you want to contribute. In case you don't have any projects, create your first
+- Go to your projects and checkout the contributions other's have provided to you
 
 ### Prerequisites
 
@@ -31,13 +42,30 @@ Rails: v6.0.3.2
 Postgres: >=9.5
 
 ### Setup
-- Work in progress
+- Install gems
+  `bundle install`
+- Create DB
+  `rails db:create`
+- Setup database
+  `rails db:migrate`
 
 ### Usage
-- Work in progress
+- Run `rails server` and run the App on your local server
 
 ### Run tests
-- Work in progress
+- We used Rspec and Capybara with Selenium Chrome Driver for user testing. 
+
+If you want to run tests, please do the following:
+1. Install the following gems on your Gemfile:
+  - gem 'rspec-rails'
+  - gem 'capybara'
+  - gem 'webdrivers'
+
+2. Run `rails g rspec::install` on your command line
+3. Add the following into your spec/rails_helper.rb:
+  - Capybara.default_driver = :selenium_chrome
+
+4. Run `Rspec` on your command line and review the results.
 
 ### Deployment to Heroku
 - Work in progress
