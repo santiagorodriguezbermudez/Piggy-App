@@ -10,15 +10,12 @@ A Ruby on Rails mobile web app that helps you organize with your friends / famil
 
 # App screenshots
 ![screenshot](./app/assets/images/log.png)
-![screenshot](./app/assets/images/user_profile.png)
+![screenshot](./app/assets/images/user_profile.png)<br>
 ![screenshot](./app/assets/images/savings.png)
-![screenshot](./app/assets/images/list_savings.png)
 ![screenshot](./app/assets/images/project.png)
-
-
+![screenshot](./app/assets/images/list_savings.png)
 
 ## Built With
-
 - Ruby v2.7.0
 - Ruby on Rails v6.0.3.2
 
@@ -37,9 +34,9 @@ A Ruby on Rails mobile web app that helps you organize with your friends / famil
 
 ### Prerequisites
 
-Ruby: 2.7.0
-Rails: v6.0.3.2
-Postgres: >=9.5
+- Ruby: 2.7.0
+- Rails: v6.0.3.2
+- Postgres: >=9.5
 
 ### Setup
 - Install gems
@@ -68,17 +65,33 @@ If you want to run tests, please do the following:
 4. Run `Rspec` on your command line and review the results.
 
 ### Deployment to Heroku
-- Work in progress
+1. Create Heroku Application `heroku create`
+2. Modify your gemfiles to deploy a Rails application. 
+    
+```
+    group :development, :test do
+    gem 'sqlite3'
+    end
+
+    group :production do
+    gem 'pg'
+    end
+```
+
+3. Bundle install `bundle install --without production`
+4. Push to Heroku `git push heroku master`
+5. Migrate the database on Heroku: `heroku run rails db:migrate`
+6. Check the live application: `heroku open`
 
 ## Project Roadmap
-- Work in progress
+- Implement adding friend requests and looking for friends personal savings
+- Create a dashboard with the most contributing members of the community
 
 ## Authors
 👤 Santiago Rodriguez
 - Github: [@srba87](https://github.com/santiagorodriguezbermudez)
 - Twitter: [@srba87](https://twitter.com/srba)
 - Linkedin: [srba87](https://linkedin.com/in/srba87)
-
 
 ## Credits
 Layouts design by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)<br>
@@ -87,7 +100,6 @@ Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
-
 Feel free to check the [issues page](issues/).
 
 ## Acknoledgements
