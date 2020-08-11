@@ -3,17 +3,17 @@
 A Ruby on Rails mobile web app that helps you organize with your friends / family around projects (i.e. trips, kickoff business ideas, fix household problems, etc.) and save enough money to implement such projects.
 
 ## Live Demo
-[Live Demo Link - Work in Progress]()
+[Live Demo Link](https://glacial-peak-89059.herokuapp.com/welcome)
 
 ## Video Demo
-[Walkthrough demo - Work in Progress]()
+[Walkthrough Video Demo](https://www.loom.com/share/3825be9acc0d4c96b1faa0db56a592d1)
 
 # App screenshots
-![screenshot](./app/assets/images/log.png)
-![screenshot](./app/assets/images/user_profile.png)<br>
-![screenshot](./app/assets/images/savings.png)
-![screenshot](./app/assets/images/project.png)
-![screenshot](./app/assets/images/list_savings.png)
+<img src="./app/assets/images/log.png" alt="drawing" width="300"/>
+<img src="./app/assets/images/user_profile.png" alt="drawing" width="300"/>
+<img src="./app/assets/images/all_projects.png" alt="drawing" width="300"/>
+<img src="./app/assets/images/project.png" alt="drawing" width="300"/>
+<img src="./app/assets/images/list_savings.png" alt="drawing" width="300"/>
 
 ## Built With
 - Ruby v2.7.0
