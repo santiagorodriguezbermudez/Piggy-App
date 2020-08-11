@@ -5,6 +5,7 @@ ruby '2.6.5'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
