@@ -17,6 +17,6 @@ module SavingsHelper
   end
 
   def render_saving_img(item)
-    (image_tag item[:img], class: 'profile text-white').html_safe unless item[:img].nil?
+    (image_tag item[:img], class: 'profile text-white m-3').html_safe unless item[:img].nil?
   end
 end
