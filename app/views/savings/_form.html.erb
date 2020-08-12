@@ -1,11 +1,7 @@
 <%= form_with(model: saving, local: true, id:'Saving') do |form| %>
   <%= form.text_field :name, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Name your contribution' %>
   <%= form.number_field :amount, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Amount' %>
-  <% unless no_projects? %>
-    <%= display_projects %>
-  <% else %>
-    <%= link_to 'Add the first Project', root_path, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3' %>  
-  <% end %>
+  <%= show_projects %>
   <% @page_button = (form.submit 'Save', class:"submit", form: 'Saving').html_safe %>
 
   <% if saving.errors.any? %>
