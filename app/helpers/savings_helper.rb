@@ -6,4 +6,19 @@ module SavingsHelper
   def display_projects
     collection_select(:saving, :project_id, Project.all, :id, :name, prompt: true).html_safe
   end
+
+  def message_if_no_projects(savings)
+    if savings.empty? 
+      "<div class='d-flex justify-content-between my-3 bg-white rounded p-5 shadow'>
+         <p>No savings registered</p>
+      </div>".html_safe
+    end
+  end
+
+  def render_img(saving)
+    unless saving[:img].nil?
+      (image_tag saving[:img], class:'profile text-white').html_safe
+    end
+  end
+
 end
