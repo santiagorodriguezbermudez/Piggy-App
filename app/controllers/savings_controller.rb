@@ -4,8 +4,6 @@ class SavingsController < ApplicationController
     @total_savings = current_user.savings.savings_with_project.sum(:amount)
   end
 
-  def show; end
-
   def new
     @saving = Saving.new
   end
@@ -22,12 +20,6 @@ class SavingsController < ApplicationController
       end
     end
   end
-
-  def update; end
-
-  def edit; end
-
-  def destroy; end
 
   def savings_with_no_project
     @savings = Saving.return_savings(current_user.savings, 'other')
