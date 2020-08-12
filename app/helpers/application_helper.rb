@@ -24,4 +24,18 @@ module ApplicationHelper
       root_path
     end
   end
+
+  def message_if_no_projects(item)
+    return unless item.empty?
+
+    "<div class='d-flex justify-content-between my-3 bg-white rounded p-5 shadow'>\
+    <p>No items yet</p>\
+    </div>".html_safe
+  end
+
+  def render_img(item)
+    html_img = (image_tag item[:img], class: 'profile text-white').html_safe
+    html_link = (link_to html_img, project_path(id: item[:id]), class: 'p-5').html_safe
+    return html_link unless item[:img].nil?
+  end
 end
