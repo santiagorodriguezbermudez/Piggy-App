@@ -6,7 +6,7 @@ A Ruby on Rails mobile web app that helps you organize with your friends / famil
 [Live Demo Link](https://glacial-peak-89059.herokuapp.com/welcome)
 
 ## Video Demo
-[Walkthrough Video Demo](https://www.loom.com/share/3825be9acc0d4c96b1faa0db56a592d1)
+[Walkthrough Video Demo](https://www.loom.com/share/7f71eb8d307f4c31a78917ea4a7a3cae)
 
 # App screenshots
 <img src="./app/assets/images/log.png" alt="drawing" width="300"/>
