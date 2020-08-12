@@ -1,15 +1,12 @@
 class ProjectsController < ApplicationController
   def index
-    @user_projects = current_user.projects.ordered_by_name.pluck(:name, :goal, :created_at, :id, :image_url)
-    @other_projects = Project.rest_of_projects(current_user.id).pluck(:name, :goal, :created_at, :id, :image_url)
-    @user_projects = pluck_to_hash(@user_projects)
-    @other_projects = pluck_to_hash(@other_projects)
+    @user_projects = Project.user_projects(current_user)
+    @other_projects = Project.other_projects(current_user)
   end
 
   def show
     @project = Project.find(params[:id])
-    @savings = @project.savings.ordered_by_date_savings.includes(:author)
-    @savings = pluck_to_hash(@savings.pluck(:name, :amount, :created_at, 'users.name', 'users.image_url'))
+    @savings = Project.get_savings(@project)
     @total_savings = @project.savings.sum(:amount)
   end
 
@@ -37,7 +34,5 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:name, :image, :goal)
   end
 
-  def pluck_to_hash(pluck)
-    pluck.map! { |s| { name: s[0], goal: s[1], date: s[2].strftime('%b-%d-%Y'), id: s[3], img: s[4] } }
-  end
+
 end
