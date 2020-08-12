@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   belongs_to :user
 
   validates :name, :goal, presence: true
-  validates :name, length: { minimum: 5 }
+  validates :name, length: { minimum: 5, maximum: 200 }
   validates :goal, numericality: { greater_than_or_equal_to: 1 }
 
   has_attached_file :image, styles: { medium: '300x300#', thumb: '100x100#' }, default_url: 'user.svg'
