@@ -1,8 +1,6 @@
 class SavingsController < ApplicationController
   def index
-    @savings = current_user.savings.savings_with_project.includes(:project)
-    @savings = @savings.pluck(:name, :amount, :created_at, 'projects.image_url', :project_id)
-    @savings.map! { |s| { name: s[0], amount: s[1], date: s[2].strftime('%b-%d-%Y'), img: s[3], project: s[4] } }
+    @savings = Saving.return_savings(current_user.savings)
     @total_savings = current_user.savings.savings_with_project.sum(:amount)
   end
 
@@ -32,9 +30,7 @@ class SavingsController < ApplicationController
   def destroy; end
 
   def savings_with_no_project
-    @savings = current_user.savings.savings_with_no_project.includes(:project)
-    @savings = @savings.pluck(:name, :amount, :created_at, 'projects.image_url', :project_id)
-    @savings.map! { |s| { name: s[0], amount: s[1], date: s[2].strftime('%b-%d-%Y'), img: s[3], project: s[4] } }
+    @savings = Saving.return_savings(current_user.savings, 'other')
     @total_savings = current_user.savings.savings_with_no_project.sum(:amount)
   end
 
