@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PiggyApp</title>
+    <title>Piggy App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <%= favicon_link_tag 'piggy_icon.svg' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/4c68ce4f85.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   </head>
 
-  <body>
-    <%= yield %>
+  <body id='main'>  
+
+    <% unless no_navbar %>
+      <nav class = 'navbar py-3 d-flex justify-content-between'>
+        <%= left_icon %>
+        <span> <%= @page_name %> </span>
+        <span> <%= @page_button %> </span>
+      </nav>
+    <% end %>
+
+    <main class='container-fluid <%= controller.controller_name %>' >
+
+        <% if flash[:alert] %>
+          <aside class="text-danger border border-danger p-5"><%= flash[:alert] %></aside>
+        <% end %>
+        <% if flash[:notice] %>
+          <aside class="text-success border border-success p-5"><%= flash[:notice] %></aside>
+        <% end %>      
+
+        <%= yield %>
+    </main>
   </body>
 </html>

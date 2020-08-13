@@ -1,0 +1,24 @@
+<div class="d-flex flex-column justify-content-center mx-0 px-0 <%= controller.action_name %>">
+  <%= image_tag current_user.image.url, class:"profile text-white"%>
+
+  <hr>
+  <h2 class = 'w-100 text-center text-white my-4'><%= current_user.name %></h2>
+  <ul class="nav">
+      <div class ='my-4 w-100 d-flex align-items-center justify-content-center px-4'>
+        <i class="fas fa-piggy-bank p-4 text-white"></i>
+        <span class="w-100 border-bottom border-white"><%= link_to 'All my savings', savings_path, class: 'text-white' %></span>
+      </div>
+      <div class ='my-4 w-100 d-flex align-items-center justify-content-center px-4'>
+        <i class="fas fa-tasks p-4 text-white"></i>
+        <span class="w-100 border-bottom border-white"><%= link_to 'Contributions without project', savings_no_project_path, class: 'text-white' %></span>
+      </div>
+      <div class ='my-4 w-100 d-flex align-items-center justify-content-center px-4'>
+        <i class="fas fa-user-friends p-4 text-white"></i>
+        <span class="w-100 border-bottom border-white"><%= link_to 'All projects', projects_path, class: 'text-white' %></span>
+      </div>
+      <div class ='my-4 w-100 d-flex align-items-center justify-content-center px-4'>
+        <i class="fas fa-sign-out-alt p-4 text-white"></i>
+        <span class="w-100 border-bottom border-white"><%= link_to 'Sign out', logout_path, method: :delete, data: { confirm: 'Are you sure to logout?' }, class: 'text-white' %></span>
+      </div>    
+  </ul>
+</div>

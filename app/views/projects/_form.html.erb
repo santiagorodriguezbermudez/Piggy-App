@@ -1,0 +1,30 @@
+<%= javascript_include_tag 'show_image' %>
+<%= form_with(model: project, local: true, id: 'Project') do |form| %>
+  <div id="image" class="d-none mt-5">
+    <br>
+    <img id="img-upload" alt="preview" class="w-50 d-block mx-auto">
+    <br>
+  </div>
+
+  <%= form.file_field :image, class: 'custom-file-input mb-3',onChange: 'preview_picture()' %>
+  <%= form.label :image, "Upload picture", class: 'custom-file-label' %>
+  <%= form.text_field :name, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Type the project name' %>
+  <%= form.number_field :goal, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: "Project's goal" %>
+
+  <% @page_button = (form.submit 'Save', class:"submit", form: 'Project').html_safe %>
+
+  <% if project.errors.any? %>
+    <div id="error_explanation" class="m-5 border border-danger rounded p-5">
+      <h2><%= pluralize(project.errors.count, "error") %> prevented the project from being saved, please correct the following:</h2>
+
+      <ul class='pl-0'>
+        <% project.errors.full_messages.each do |message| %>
+          <p class='mx-0 px-0 text-danger text-bold'><%= message %></p>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+
+

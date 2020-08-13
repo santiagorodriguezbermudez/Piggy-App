@@ -1,0 +1,27 @@
+// Place all the styles related to the savings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.savings {
+  h3 {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+
+  .profile {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15%;
+  }
+
+  span {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+
+  .btn {
+    font-size: 3rem;
+  }
+}

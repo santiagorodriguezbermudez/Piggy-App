@@ -1,0 +1,39 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.users {
+  margin: 0;
+
+  .new {
+    margin: 3rem 0;
+
+    .form-control-lg {
+      font-size: 3rem;
+    }
+
+    input {
+      border-width: 1px;
+    }
+  }
+
+  .show {
+    background: linear-gradient(#13325e, #3184c2);
+    padding: 5em;
+
+    h2 {
+      font-size: 5rem;
+    }
+
+    .profile {
+      min-width: 500px;
+      max-width: 500px;
+      min-height: 500px;
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center;
+      margin: 5rem auto 0;
+      border-radius: 50%;
+    }
+  }
+}

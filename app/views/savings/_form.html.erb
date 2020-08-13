@@ -1,0 +1,25 @@
+<%= form_with(model: saving, local: true, id:'Saving') do |form| %>
+  <%= form.text_field :name, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Name your contribution' %>
+  <%= form.number_field :amount, class: 'border-white w-100 rounded mb-0 py-4 pl-5 my-3', placeholder: 'Amount' %>
+  <%= show_projects %>
+  <% @page_button = (form.submit 'Save', class:"submit", form: 'Saving').html_safe %>
+
+  <% if saving.errors.any? %>
+    <div id="error_explanation" class="m-5 border border-danger rounded p-5">
+      <h2><%= pluralize(saving.errors.count, "error") %> prevented the user from being saved, please correct the following:</h2>
+
+      <ul class='pl-0'>
+        <% saving.errors.full_messages.each do |message| %>
+          <p class='mx-0 px-0 text-danger text-bold'><%= message %></p>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+

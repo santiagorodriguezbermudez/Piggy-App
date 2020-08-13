@@ -1,0 +1,49 @@
+<% @page_name = 'PROJECTS' %>
+
+<div class="<%= controller.action_name %>">
+    <section class = 'col-12 p-0'>
+
+      <div class = 'bg-white p-5'>
+        <h3>My Projects</h3>
+      </div>
+      <div class='d-flex flex-column justify-content-around my-3'>
+        <%= message_if_no_projects(@user_projects) %>
+
+        <% @user_projects.each do |project| %>
+          <div class='d-flex justify-content-between my-3 bg-white rounded p-5 shadow'>
+            <%= render_img(project) %>
+            <div class="d-flex flex-column justify-content-between align-items-start p-3">
+              <p><%= project[:name] %></p>
+              <p><%= project[:date] %></p>
+            </div>
+            <div class="d-flex flex-column justify-content-between align-items-start p-3">
+              <p>Goal: <%= number_to_currency(project[:goal], precision: 0) %></p>
+              <p>Saved: <%= number_to_percentage(goal_completed(project), precision: 0) %></p>
+            </div>
+          </div>
+        <% end %>        
+      </div>
+
+      <div class = 'bg-white p-5'>
+        <h3>Other Projects</h3>
+      </div>
+      <div class='d-flex flex-column justify-content-around my-3'>
+        <%= message_if_no_projects(@other_projects) %>
+          <% @other_projects.each do |project| %>
+            <div class='d-flex justify-content-between my-3 bg-white rounded p-5 shadow'>
+              <%= render_img(project) %>
+              <div class="d-flex flex-column justify-content-between align-items-start p-3">
+                <p><%= project[:name] %></p>
+                <p><%= project[:date] %></p>
+              </div>
+              <div class="d-flex flex-column justify-content-between align-items-start p-3">
+                <p>Goal: <%= number_to_currency(project[:goal], precision: 0) %></p>
+                <p>Saved: <%= number_to_percentage(goal_completed(project), precision: 0) %></p>
+              </div>
+            </div>
+          <% end %>
+      </div>
+
+      <%= link_to "Create a Project", new_project_path, class:'btn btn-success w-100 px-3 py-4 my-3'%>
+    </section>
+</div>

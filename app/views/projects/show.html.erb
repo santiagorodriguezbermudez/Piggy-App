@@ -1,0 +1,25 @@
+<% @page_name = "Project #{@project.name}" %>
+
+<div class="d-flex flex-column justify-content-center mx-0 px-0 <%= controller.action_name %>">
+  <%= image_tag @project.image.url, class:"project-picture"%>
+
+  <div class = 'bg-white p-5 my-3'>
+    <h3>Total Completed: <%= number_to_percentage(percentage_completed(@project), precision: 0) %></h3>
+    <div class="progress shadow-lg">
+      <div class="progress-bar progress-bar-striped bg-success progress-bar-animated"
+          role="progressbar"
+          style="width:<%= number_to_percentage(percentage_completed(@project), precision: 0) %>"
+          aria-valuenow="<%= percentage_completed(@project) %>"
+          aria-valuemin="0"
+          aria-valuemax="100">
+      </div>
+    </div>
+  </div>
+
+  <div class = 'bg-white p-5 my-3'>
+    <h3>Goal: <%= number_to_currency(@project.goal, precision:0 ) %></h3>
+  </div>
+
+  <%= render 'savings', savings: @savings %>
+
+</div>
